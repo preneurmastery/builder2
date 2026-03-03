@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Landing Page Builder Pro - Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Gradient Background */
+        .gradient-purple-pink {
+            background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+        }
+        .gradient-text-purple-pink {
+            background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Hover effects */
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+        .btn-primary:hover {
+            background-color: #9d5af7; /* Darker purple */
+        }
+        .btn-secondary:hover {
+            background-color: #f43f5e; /* Darker pink */
+        }
+
+        /* Accordion styling */
+        .accordion-item-header {
+            position: relative;
+            cursor: pointer;
+        }
+        .accordion-item-header::after {
+            content: '\f078'; /* Font Awesome angle-down */
+            font-family: 'Font Awesome 6 Free';
+            position: absolute;
+            right: 0;
+            transition: transform 0.3s ease-out;
+        }
+        .accordion-item-header.active::after {
+            transform: rotate(180deg);
+        }
+        .accordion-item-content {
+            display: none;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        /* Testimonial card shadow */
+        .testimonial-card {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Countdown timer */
+        .countdown {
+            display: flex;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text-purple-pink">
+                AI Builder Pro
+            </div>
+            <ul class="hidden md:flex space-x-6 items-center">
+                <li><a href="#problem" class="hover:text-pink-500 transition duration-300">Masalah</a></li>
+                <li><a href="#features" class="hover:text-pink-500 transition duration-300">Fitur</a></li>
+                <li><a href="#howitworks" class="hover:text-pink-500 transition duration-300">Cara Kerja</a></li>
+                <li><a href="#pricing" class="hover:text-pink-500 transition duration-300">Harga</a></li>
+                <li><a href="#faq" class="hover:text-pink-500 transition duration-300">FAQ</a></li>
+                <li>
+                    <a href="#pricing" class="bg-pink-500 text-white px-6 py-2 rounded-full font-semibold hover-lift transition duration-300">
+                        Coba Gratis 7 Hari
+                    </a>
+                </li>
+            </ul>
+            <button class="md:hidden text-gray-700 focus:outline-none" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-white shadow-lg" id="mobile-menu">
+            <ul class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <li><a href="#problem" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-pink-100 transition duration-300">Masalah</a></li>
+                <li><a href="#features" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-pink-100 transition duration-300">Fitur</a></li>
+                <li><a href="#howitworks" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-pink-100 transition duration-300">Cara Kerja</a></li>
+                <li><a href="#pricing" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-pink-100 transition duration-300">Harga</a></li>
+                <li><a href="#faq" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-pink-100 transition duration-300">FAQ</a></li>
+                <li>
+                    <a href="#pricing" class="block w-full text-center px-3 py-2 rounded-md bg-pink-500 text-white font-semibold hover-lift transition duration-300">
+                        Coba Gratis 7 Hari
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section id="hero" class="gradient-purple-pink text-white py-24 md:py-32 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+                    Bikin Landing Page Berkualitas Enterprise dalam 1 Menit... Tanpa Coding!
+                </h1>
+                <p class="text-lg md:text-xl mb-8 opacity-90">
+                    Platform AI pertama di Indonesia yang bisa generate landing page siap-pakai dengan copywriting CRO, desain premium, dan optimasi konversi - setara builder $300/bulan.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#pricing" class="btn-primary bg-purple-600 text-white px-8 py-4 rounded-full font-bold text-xl hover-lift transition duration-300 shadow-lg">
+                        Coba Gratis 7 Hari
+                    </a>
+                    <a href="#" class="btn-secondary bg-pink-500 text-white px-8 py-4 rounded-full font-bold text-xl hover-lift transition duration-300 shadow-lg">
+                        Lihat Demo <i class="fas fa-play-circle ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center md:justify-end">
+                <!-- Visual Hint: Placeholder for AI Generation Animation -->
+                <div class="w-full max-w-lg bg-white/20 rounded-xl p-6 shadow-xl animate-pulse">
+                    <div class="flex justify-center items-center h-64">
+                        <i class="fas fa-robot text-6xl"></i>
+                    </div>
+                    <p class="text-center text-lg mt-4">Visualisasi: AI sedang merancang landing page responsif secara instan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. PROBLEM SECTION -->
+    <section id="problem" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 gradient-text-purple-pink">
+                Masih Pakai Cara Lama untuk Bikin Landing Page?
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-lift transition duration-300 flex flex-col items-center">
+                    <i class="fas fa-clock text-5xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Buang Waktu Berjam-jam</h3>
+                    <p class="text-gray-700">Menghabiskan waktu berharga Anda berhari-hari hanya untuk desain & coding.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-lift transition duration-300 flex flex-col items-center">
+                    <i class="fas fa-dollar-sign text-5xl text-pink-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Biaya Sangat Mahal</h3>
+                    <p class="text-gray-700">Sewa developer atau agency bisa menguras kantong, apalagi untuk UMKM.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg hover-lift transition duration-300 flex flex-col items-center">
+                    <i class="fas fa-chart-line text-5xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Hasil Tidak Konversi</h3>
+                    <p class="text-gray-700">Desain kurang menarik, copywriting tidak menjual, peluang penjualan terlewatkan.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-lg hover-lift transition duration-300 flex flex-col items-center">
+                    <i class="fas fa-exclamation-triangle text-5xl text-pink-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Bingung & Ribet</h3>
+                    <p class="text-gray-700">Teknis coding pusing, tool builder lain mahal dan fitur terbatas.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-lg hover-lift transition duration-300 flex flex-col items-center">
+                    <i class="fas fa-undo-alt text-5xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Proses Manual Membosankan</h3>
+                    <p class="text-gray-700">Mengulang langkah yang sama setiap kali butuh landing page baru.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-xl shadow-lg hover-lift transition duration-300 flex flex-col items-center">
+                    <i class="fas fa-calendar-times text-5xl text-pink-500 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Peluang Terlewat</h3>
+                    <p class="text-gray-700">Kampanye marketing tertunda karena landing page belum siap.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SOLUTION SECTION -->
+    <section id="solution" class="py-20 px-4 bg-gray-100">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 gradient-text-purple-pink">
+                    AI Landing Page Builder Pro: Solusi Cerdas Anda!
+                </h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    Kami merevolusi cara Anda membuat landing page. Dengan AI Landing Page Builder Pro, Anda bisa mendapatkan landing page profesional, menarik, dan siap konversi dalam hitungan menit, bahkan tanpa perlu pengalaman teknis sedikitpun. Fokus pada bisnis Anda, biarkan AI yang bekerja!
+                </p>
+                <p class="text-lg text-gray-700 font-semibold">
+                    Hemat waktu 95% dan dapatkan hasil setara builder mahal. Tanpa coding, tanpa repot!
+                </p>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <!-- Screenshot Placeholder -->
+                <div class="w-full max-w-xl bg-white rounded-xl shadow-2xl p-4">
+                    <img src="https://via.placeholder.com/600x400/8B5CF6/FFFFFF?text=AI+Builder+Dashboard" alt="AI Builder Dashboard Screenshot" class="rounded-lg shadow-lg w-full h-auto">
+                    <p class="text-center text-sm text-gray-500 mt-2">Contoh Tampilan Dashboard AI Builder Pro</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FITUR LENGKAP -->
+    <section id="features" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text-purple-pink">
+                Semua Fitur Canggih dalam Satu Platform
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Kolom 1: FITUR UTAMA -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-purple-700">Fitur Utama</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-magic text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">AI Copywriting CRO</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-palette text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">19+ Visual Styles</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-bullhorn text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">12+ Framework Copywriting</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-users text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Custom Category & Audience</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-hand-pointer text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Custom CTA</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-brush text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Custom Visual Style</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-comments text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Custom Brand Tone</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom 2: FITUR DESAIN -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-purple-700">Fitur Desain</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-mobile-alt text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Mobile Responsive</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-eye text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Live Preview</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-laptop text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Device Toggle</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-search-plus text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Zoom In/Out</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-code text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Edit HTML Mode</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom 3: FITUR TRUST & KONVERSI -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-purple-700">Trust & Konversi</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-award text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Conversion Score Meter</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-shield-check text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">8+ Trust Elements</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-users-cog text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">8+ Social Proof Options</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-clock text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">8+ Urgency Types</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-brain text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Psychological Triggers</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Kolom 4: FITUR TEKNIS -->
+                 <div>
+                    <h3 class="text-2xl font-bold mb-6 text-purple-700">Fitur Teknis</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-download text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Export HTML</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-copy text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Copy Code</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fab fa-wordpress text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">WordPress Ready</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-shopping-cart text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Shopify Compatible</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-save text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Auto-save Draft</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-pen-alt text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Special Request Box</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Kolom 5: KEMUDAHAN -->
+                 <div>
+                    <h3 class="text-2xl font-bold mb-6 text-purple-700">Kemudahan</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-times-circle text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">No Coding Needed</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-hourglass-half text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">1 Menit Jadi</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-list-ol text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">6 Step Wizard</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-double text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Conversion Score</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-question-circle text-xl text-pink-500"></i>
+                            <span class="font-medium text-lg">Tooltips & Help</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. BAGAIMANA CARA KERJA -->
+    <section id="howitworks" class="py-20 px-4 bg-gray-100">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-16 gradient-text-purple-pink">
+                Buat Landing Page Impian Anda dalam 3 Langkah Simpel
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-purple-600 flex items-center justify-center text-white text-3xl font-bold mb-4 shadow-lg">1</div>
+                    <h3 class="text-xl font-bold mb-3">Isi Form Produk</h3>
+                    <p class="text-gray-700">Masukkan nama produk, harga, dan manfaat utama.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-pink-500 flex items-center justify-center text-white text-3xl font-bold mb-4 shadow-lg">2</div>
+                    <h3 class="text-xl font-bold mb-3">Pilih Target Anda</h3>
+                    <p class="text-gray-700">Tentukan audiens, pain points, dan gaya yang diinginkan.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 rounded-full bg-purple-600 flex items-center justify-center text-white text-3xl font-bold mb-4 shadow-lg">3</div>
+                    <h3 class="text-xl font-bold mb-3">Generate & Selesai!</h3>
+                    <p class="text-gray-700">Klik tombol generate, landing page profesional Anda siap digunakan!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. TESTIMONIAL SECTION -->
+    <section class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text-purple-pink">
+                Kata Mereka yang Sudah Merasakan Keajaiban AI Builder Pro
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-6 rounded-xl hover-lift transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60x60/8B5CF6/FFFFFF?text=A" alt="Avatar Andi" class="w-16 h-16 rounded-full mr-4 border-2 border-pink-500">
+                        <div>
+                            <p class="font-bold text-lg">Andi Prasetyo</p>
+                            <p class="text-gray-600">Pemilik Toko Online</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Sebelumnya saya bayar developer 5 juta untuk 1 landing page. Sekarang dengan LP Builder, 1 menit jadi dan hasilnya lebih bagus! Konversi meningkat 40%."
+                    </p>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-6 rounded-xl hover-lift transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60x60/EC4899/FFFFFF?text=S" alt="Avatar Siti" class="w-16 h-16 rounded-full mr-4 border-2 border-purple-600">
+                        <div>
+                            <p class="font-bold text-lg">Siti Aminah</p>
+                            <p class="text-gray-600">Marketer Freelance</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "Awalnya ragu, tapi alat ini luar biasa! Landing page saya yang dulu sepi pengunjung, kini dapat 2x lipat prospek dalam seminggu berkat AI copywitingnya."
+                    </p>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-6 rounded-xl hover-lift transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="https://via.placeholder.com/60x60/8B5CF6/FFFFFF?text=R" alt="Avatar Rio" class="w-16 h-16 rounded-full mr-4 border-2 border-pink-500">
+                        <div>
+                            <p class="font-bold text-lg">Rio Ferdinand</p>
+                            <p class="text-gray-600">Owner Startup Tech</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "AI Builder Pro adalah penyelamat bisnis kami. Kami bisa meluncurkan kampanye produk baru dengan cepat tanpa menunggu developer. Konversi naik signifikan!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF STATS -->
+    <section class="py-16 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text-purple-pink">
+                Sudah Dipercaya Oleh Ribuan Pebisnis Cerdas!
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-5xl font-extrabold text-purple-600 mb-2">500+</div>
+                    <p class="text-lg font-semibold">Landing Page Dibuat</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-extrabold text-pink-500 mb-2">95%</div>
+                    <p class="text-lg font-semibold">Hemat Waktu</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-extrabold text-purple-600 mb-2">4.8/5</div>
+                    <p class="text-lg font-semibold">Rating Kepuasan</p>
+                </div>
+                <div>
+                    <div class="text-5xl font-extrabold text-pink-500 mb-2">1000+</div>
+                    <p class="text-lg font-semibold">Pengguna Aktif</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. HARGA SECTION -->
+    <section id="pricing" class="py-20 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 gradient-text-purple-pink">
+                Penawaran Spesial Peluncuran!
+            </h2>
+            <p class="text-lg text-gray-700 mb-12">
+                Dapatkan akses seumur hidup ke semua fitur premium AI Landing Page Builder Pro dengan diskon besar-besaran. Investasi sekali, panen keuntungan selamanya!
+            </p>
+
+            <div class="bg-white p-10 rounded-xl shadow-2xl border-2 border-purple-500 relative max-w-sm mx-auto">
+                <div class="absolute top-0 right-0 bg-pink-500 text-white px-4 py-2 rounded-bl-lg rounded-tr-lg font-bold">
+                    PROMO 70% OFF!
+                </div>
+                <div class="text-6xl font-extrabold text-purple-700 mb-3">
+                    Rp 145.000
+                </div>
+                <div class="text-gray-500 line-through text-lg mb-6">
+                    Rp 450.000
+                </div>
+                <p class="text-lg text-gray-700 mb-6">
+                    Akses Seumur Hidup (Lifetime Access)
+                </p>
+                <ul class="text-left text-gray-700 space-y-3 mb-8 font-medium">
+                    <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>AI Copywriting & Desain Premium</li>
+                    <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>19+ Visual Styles</li>
+                    <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Mobile Responsive</li>
+                    <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>8+ Trust Elements</li>
+                    <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i>Update Gratis Selamanya</li>
+                </ul>
+
+                <!-- Urgency Element -->
+                <div class="border-t border-dashed border-gray-300 pt-6 mb-6">
+                    <h4 class="text-xl font-bold mb-3 text-red-600">🔥 PROMO KILAT BERAKHIR DALAM:</h4>
+                    <div id="countdown-timer" class="countdown justify-center">
+                        <div class="countdown-item">
+                            <div id="days" class="text-white">00</div>
+                            <div class="countdown-label text-white">Hari</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div id="hours" class="text-white">00</div>
+                            <div class="countdown-label text-white">Jam</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div id="minutes" class="text-white">00</div>
+                            <div class="countdown-label text-white">Menit</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div id="seconds" class="text-white">00</div>
+                            <div class="countdown-label text-white">Detik</div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#pricing" class="block w-full btn-primary bg-purple-600 text-white px-8 py-4 rounded-full font-bold text-xl hover-lift transition duration-300 shadow-lg">
+                    Dapatkan Sekarang!
+                </a>
+            </div>
+
+            <p class="mt-8 text-sm text-gray-500">
+                *Penawaran berlaku untuk periode terbatas. Ambil kesempatan emas ini!
+            </p>
+        </div>
+    </section>
+
+    <!-- TRUST BADGES -->
+    <section class="py-12 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto flex flex-wrap justify-center items-center gap-8">
+            <img src="https://via.placeholder.com/100x50/CCCCCC/FFFFFF?text=SSL" alt="SSL Secured" class="h-12 opacity-70">
+            <img src="https://via.placeholder.com/100x50/CCCCCC/FFFFFF?text=VISA" alt="Visa" class="h-12 opacity-70">
+            <img src="https://via.placeholder.com/100x50/CCCCCC/FFFFFF?text=MC" alt="Mastercard" class="h-12 opacity-70">
+            <img src="https://via.placeholder.com/100x50/CCCCCC/FFFFFF?text=PAYPAL" alt="Paypal" class="h-12 opacity-70">
+            <img src="https://via.placeholder.com/100x50/CCCCCC/FFFFFF?text=TRUSTED" alt="Trusted Payment" class="h-12 opacity-70">
+        </div>
+    </section>
+
+    <!-- 8. FAQ SECTION -->
+    <section id="faq" class="py-20 px-4 bg-gray-100">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text-purple-pink">
+                Pertanyaan yang Sering Diajukan
+            </h2>
+            <div class="accordion space-y-4">
+                <!-- FAQ Item 1 -->
+                <div>
+                    <div class="accordion-item-header p-5 bg-white rounded-xl shadow-md cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Apakah benar-benar tanpa coding?</h3>
+                        <i class="fas fa-chevron-down text-xl text-purple-600"></i>
+                    </div>
+                    <div class="accordion-item-content bg-white p-5 rounded-b-xl text-gray-700">
+                        <p>Sama sekali tidak! AI Landing Page Builder Pro dirancang agar sangat intuitif. Anda hanya perlu menjawab beberapa pertanyaan, dan AI kami akan membuatkan landing page profesional untuk Anda. Pengeditan pun semudah drag-and-drop.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div>
+                    <div class="accordion-item-header p-5 bg-white rounded-xl shadow-md cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Bisakah saya custom desain?</h3>
+                        <i class="fas fa-chevron-down text-xl text-purple-600"></i>
+                    </div>
+                    <div class="accordion-item-content bg-white p-5 rounded-b-xl text-gray-700">
+                        <p>Ya! Anda bisa memilih dari 19+ visual styles yang tersedia, serta melakukan kustomisasi lebih lanjut pada warna, font, dan elemen desain lainnya. AI kami juga bisa membuatkan style khusus jika Anda inginkan.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div>
+                    <div class="accordion-item-header p-5 bg-white rounded-xl shadow-md cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Apakah hasilnya mobile friendly?</h3>
+                        <i class="fas fa-chevron-down text-xl text-purple-600"></i>
+                    </div>
+                    <div class="accordion-item-content bg-white p-5 rounded-b-xl text-gray-700">
+                        <p>Tentu saja! Semua landing page yang dihasilkan secara otomatis bersifat mobile responsive. Kami memastikan tampilan optimal di berbagai perangkat, mulai dari smartphone, tablet, hingga desktop.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div>
+                    <div class="accordion-item-header p-5 bg-white rounded-xl shadow-md cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Bagaimana jika tidak puas?</h3>
+                        <i class="fas fa-chevron-down text-xl text-purple-600"></i>
+                    </div>
+                    <div class="accordion-item-content bg-white p-5 rounded-b-xl text-gray-700">
+                        <p>Kami yakin Anda akan jatuh cinta dengan AI Landing Page Builder Pro. Oleh karena itu, kami memberikan garansi uang kembali 30 hari tanpa syarat. Jika Anda tidak puas, kami kembalikan 100% uang Anda.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div>
+                    <div class="accordion-item-header p-5 bg-white rounded-xl shadow-md cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Bisakah saya export ke WordPress?</h3>
+                        <i class="fas fa-chevron-down text-xl text-purple-600"></i>
+                    </div>
+                    <div class="accordion-item-content bg-white p-5 rounded-b-xl text-gray-700">
+                        <p>Ya, landing page Anda dapat diekspor sebagai file HTML murni atau langsung diintegrasikan ke WordPress menggunakan plugin kompatibel kami. Untuk Shopify, kami juga menyediakan integrasi yang mudah.</p>
+                    </div>
+                </div>
+                <!-- FAQ Item 6 -->
+                <div>
+                    <div class="accordion-item-header p-5 bg-white rounded-xl shadow-md cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Apakah termasuk hosting?</h3>
+                        <i class="fas fa-chevron-down text-xl text-purple-600"></i>
+                    </div>
+                    <div class="accordion-item-content bg-white p-5 rounded-b-xl text-gray-700">
+                        <p>AI Landing Page Builder Pro menyediakan tool untuk membuat landing page. Untuk hosting dan domain, Anda perlu menyediakannya sendiri atau kami dapat merekomendasikan provider terpercaya.</p>
+                    </div>
+                </div>
+                 <!-- FAQ Item 7 -->
+                <div>
+                    <div class="accordion-item-header p-5 bg-white rounded-xl shadow-md cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Berapa lama saya bisa akses?</h3>
+                        <i class="fas fa-chevron-down text-xl text-purple-600"></i>
+                    </div>
+                    <div class="accordion-item-content bg-white p-5 rounded-b-xl text-gray-700">
+                        <p>Dengan pembelian sekali bayar, Anda mendapatkan akses seumur hidup (lifetime access) ke semua fitur AI Landing Page Builder Pro, termasuk update gratis.</p>
+                    </div>
+                </div>
+                 <!-- FAQ Item 8 -->
+                <div>
+                    <div class="accordion-item-header p-5 bg-white rounded-xl shadow-md cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-semibold">Apakah bisa trial gratis?</h3>
+                        <i class="fas fa-chevron-down text-xl text-purple-600"></i>
+                    </div>
+                    <div class="accordion-item-content bg-white p-5 rounded-b-xl text-gray-700">
+                        <p>Ya! Kami menawarkan masa percobaan gratis selama 7 hari. Anda bisa mencoba semua fitur premium kami tanpa risiko sebelum memutuskan untuk membeli.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FINAL CTA -->
+    <section class="py-20 px-4 bg-gradient-to-br from-purple-600 to-pink-500 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                Siap Tingkatkan Penjualan Anda Secara Drastis?
+            </h2>
+            <p class="text-lg mb-10 opacity-90">
+                Jangan tunda lagi kesuksesan bisnis Anda. Dapatkan AI Landing Page Builder Pro sekarang dan rasakan perbedaannya!
+            </p>
+            <a href="#pricing" class="block w-full sm:w-auto mx-auto btn-primary bg-white text-purple-600 px-12 py-5 rounded-full font-bold text-xl hover-lift transition duration-300 shadow-lg">
+                Ya, Saya Mau Dapatkan Diskon 70% & Landing Page Instan!
+            </a>
+            <div class="mt-8 text-sm opacity-80">
+                ✅ Garansi Uang Kembali 30 Hari<br>
+                ✅ Dukungan Teknis 24/7<br>
+                ✅ Tanpa Biaya Tersembunyi
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-gray-900 text-gray-300">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <div class="text-3xl font-bold gradient-text-purple-pink mb-3">
+                    AI Builder Pro
+                </div>
+                <p>&copy; 2024 AI Builder Pro. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="hover:text-pink-400 transition duration-300"><i class="fab fa-facebook text-2xl"></i></a>
+                <a href="#" class="hover:text-pink-400 transition duration-300"><i class="fab fa-twitter text-2xl"></i></a>
+                <a href="#" class="hover:text-pink-400 transition duration-300"><i class="fab fa-instagram text-2xl"></i></a>
+                <a href="#" class="hover:text-pink-400 transition duration-300"><i class="fab fa-linkedin text-2xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Accordion Functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-item-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                header.classList.toggle('active');
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.display = 'block';
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const promoEndDate = new Date();
+            promoEndDate.setHours(promoEndDate.getHours() + 48); // Example: 48 hours from now
+
+            const now = new Date().getTime();
+            const distance = promoEndDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById('countdown-timer').innerHTML = "<p class='text-red-500 font-bold'>Promo Telah Berakhir!</p>";
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+    </script>
+</body>
+</html>
